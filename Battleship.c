@@ -2,17 +2,22 @@
 #include <stdlib.h>
 #include <time.h>
 
+//initial set-up
+
 void welcomeScreen();
 void emptymap(int map[][60],int noOfships);
 void instructions(); 
 void stage(int map[][60], int noOfships);
 void bomb(int row1, int col1, int map[][60], int noOfships);
 
+//main function:
 
 int main()
 {
 	int level, start, bombrow, bombcol, noOfships;
 	static int map[20][60] = { 0 };
+
+//initial plays:
 
 	welcomeScreen(); 
 	scanf("%d", &start);
@@ -73,12 +78,16 @@ int main()
 	system("pause");
 }
 
+//welcome screen:
+
 void welcomeScreen() 
 {
 	printf("Welcome to the game of Battleship.\nYour objective is to select a certain location inorder to destroy the enemy's ship.\nMay the odds ever be in your favor.");
 	printf("\n");
 	printf("Enter '1' to continue or '0' to quit game\n");
 } 
+
+//instructions:
 
 void instructions() 
 {
@@ -91,6 +100,8 @@ void instructions()
 	printf("Enter 3: Hard level.\n");
     printf("Enter 4: Doomed level.\n");
 }
+
+//matrix set-up:
 
 void emptymap(int map[][60],int noOfships) 
 {
@@ -124,6 +135,8 @@ void emptymap(int map[][60],int noOfships)
 		printf("\n");
 	}
 } 
+
+//play calculations:
 
 void stage(int map[][60], int noOfships)  
 {
@@ -187,7 +200,7 @@ void bomb(int row1, int col1, int map[][60],int noOfships)
 		}
 		
 	}
-	if (count == 5)
+	if (count == 10)
 	{
 		printf("Congratulation! You have succesfully bombed 10 ships!\n");
 	}
